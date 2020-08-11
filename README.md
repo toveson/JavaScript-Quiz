@@ -1,6 +1,3 @@
-# JavaScript-Quiz
-
-
 # 04 Web APIs: Code Quiz
 
 As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
@@ -28,3 +25,7 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+<!-- Quiz UI a rectangle that has the question at the top and the top right will have a timmer. The middle will be the choices and the bottom will have a dot for each question. the dot goes green if you got it right and red if you got it wrong.  -->
+
+
+https://edulastic.com/blog/the-right-number-of-test-questions/ really helpful on figuring out how much time to have the quiz take.
