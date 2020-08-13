@@ -1,5 +1,6 @@
 // global vars
 var questionEl = document.getElementById('questions')
+
 // click Take the quiz!
 document.getElementById('takeQuiz').addEventListener("click", startQuiz);
 // vars for timer
@@ -10,7 +11,7 @@ var timeCount = startingMinutes * 60;
 // array to store high scores
 var highScores = [];
 // array of questions
-var questions = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'];
+// var questions = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'];
 // array to keep track of how many questions the user answered correct
 var answeredCorrect = [];
 
@@ -31,7 +32,7 @@ function updateTime() {
 
 // function to select next question.
 function nextQuestion() {
-    
+    questionEl.innerText = possibleQs.question
 }
 //Done// I need an array of High scores
 // Done// I need an array to hold questions
@@ -41,6 +42,7 @@ function nextQuestion() {
 // I need a function to start the quiz
 function startQuiz() {
     // now a question needs to appear in the questions card.
+    nextQuestion()
     // document.getElementById('questions').innerHTML = Q1 (question);
     console.log('clicked!')
 }
@@ -67,135 +69,142 @@ function startQuiz() {
 
 
 // My Questions
-
-// can I make this the questions array?
 // this also gives me a way to check for correct answers
-// var questions = [
-//     {
-//         question: "In an .html document where should you link an external .js at?",
-//         answers: [
-//             { text:}  
-//             { text: "Right before the </body>", correct: true },
-//             { text: "In the <head> after any linked CSS", correct: false },
-//             { text: "Right after <body>", correct: false },
-//             { text: "just above the closing </html>", correct: false }
-//         ]
-//     },
-//     }
-//     //  add the rest of the questions like this   
-//     },
-//     }
-//     //  add the rest of the questions like this   
-//     }
-// ]
+var possibleQs = [
+    {
+        question: "In an .html document where should you link an external .js at?",
+        answers: [
 
-var Q1 = {
-    question: "In an .html document where should you link an external .js at?",
-    A: "Right before the </body>",
-    B: "In the <head> after any linked CSS",
-    C: "Right after <body>",
-    D: "just above the closing </html>",
-};
-
-var Q2 = {
-    question: "If you are writing JavaScript in your .html where should you write it",
-    A: "<script>_here_</script>",
-    B: "<script src=”_here_”></script>",
-    C: "<body></body>",
-    D: "<head></head>",
-};
-
-var Q3 = {
-    question: "What is the proper way to write a for loop?",
-    A: "for (let i = 0; i < array.length; i++) {};",
-    B: "for {i < array.length; let i = 0;  i++} ();",
-    C: "for (i++; i < array.length; let i = 0) {};",
-    D: "for {i++; i = array.length; let i <  0} ();",
-};
-
-var Q4 = {
-    question: "Given (array[Math.floor(Math.random() * array.length)]); What is the purpose of .floor ?",
-    A: "It removes any decimal numbers.",
-    B: "It forces the number to be 0.",
-    C: "It rounds to the nearest whole number.",
-    D: "used the first index from an array.",
-};
-
-var Q5 = {
-    question: "Given (array[Math.floor(Math.random() * array.length)]); What is the purpose of .random?",
-    A: "It chooses any index from array.",
-    B: "It gets a random line of code.",
-    C: "It will make a random math problem.",
-    D: "Generates a random number.",
-};
-
-var Q6 = {
-    question: "How do you write a string?",
-    A: "var example = “abc”;",
-    B: "var example = (a, b, c);",
-    C: "var example = [a, b, c];",
-    D: "var example (“a, b, c”)",
-};
-var Q7 = {
-    question: "How do you write an array?",
-    A: "var example = [“a”, “b”, “c”];",
-    B: "var example = [a, b, c];",
-    C: "var example = “abc”;",
-    D: "var example (“a, b, c”);",
-};
-var Q8 = {
-    question: "What is a Boolean?",
-    A: "True or false",
-    B: "The difference between two numbers.",
-    C: "True",
-    D: "False",
-};
-var Q9 = {
-    question: "What does != mean?",
-    A: "Not equal",
-    B: "must equal",
-    C: "important equal",
-    D: "Breaks your code",
-};
-var Q10 = {
-    question: "What is a good way to debug JavaScript?",
-    A: "the console",
-    B: "console.log();",
-    C: "bugs are okay in JavaScript",
-    D: "A bug bomb",
-};
-var Q11 = {
-    question: "What does ++ mean?",
-    A: "Increment a number ",
-    B: "add the numbers twice",
-    C: "Zooms in on the screen",
-    D: "adds the number then adds it again",
-};
-var Q12 = {
-    question: "What does -- mean",
-    A: "decrement a number.",
-    B: "subtract a number twice.",
-    C: "zooms out on the screen",
-    D: "subtracts the number then subtracts it again",
-};
-var Q13 = {
-    question: "Given var example = “abc”.split(“”); what does .split(“”) do?",
-    A: "will separate each character",
-    B: "Will split “a b c” if there are any spaces",
-    C: "Will make an array for a,b and c",
-    D: "Will add a space between each character",
-};
-var Q14 = {
-    question: "given ( a || b || c ) what does || mean",
-    A: "or",
-    B: "and",
-    C: "if",
-    D: "else",
-};
-var Q15 = {
-    question: "Given array.push(example) what does .push do?",
-    A: "inserts example to array",
-    B: "pushes array down one line of code",
-    C: "pushes array up one line of code",
-    D: "puts array into a string with example",
-};
+            { text: "Right before the </body>", correct: true },
+            { text: "In the <head> after any linked CSS", correct: false },
+            { text: "Right after <body>", correct: false },
+            { text: "just above the closing </html>", correct: false }
+        ]
+    },
+    {
+        question: "If you are writing JavaScript in your .html where should you write it",
+        answers: [
+            { text: "<script>_here_</script>" },
+            { text: "<script src=”_here_”></script>" },
+            { text: "<body></body>" },
+            { text: "<head></head>" }
+        ]
+    },
+    {
+        question: "What is the proper way to write a for loop?",
+        answers: [
+            { text: "for (let i = 0; i < array.length; i++) {};" },
+            { text: "for {i < array.length; let i = 0;  i++} ();" },
+            { text: "for (i++; i < array.length; let i = 0) {};" },
+            { text: "for {i++; i = array.length; let i <  0} ();" }
+        ]
+    },
+    {
+        question: "Given (array[Math.floor(Math.random() * array.length)]); What is the purpose of .floor ?",
+        answers: [
+            { text: "It removes any decimal numbers." },
+            { text: "It forces the number to be 0" },
+            { text: "It rounds to the nearest whole number." },
+            { text: "used the first index from an array." }
+        ]
+    },
+    {
+        question: "Given (array[Math.floor(Math.random() * array.length)]); What is the purpose of .random?",
+        answers: [
+            { text: "It chooses any index from array." },
+            { text: "It gets a random line of code." },
+            { text: "It will make a random math problem." },
+            { text: "Generates a random number." }
+        ]
+    },
+    {
+        question: "How do you write a string?",
+        answers: [
+            { text: 'var example = “abc”?' },
+            { text: "var example = (a, b, c);" },
+            { text: "var example = [a, b, c];" },
+            { text: 'var example (“a, b, c”)' }
+        ]
+    },
+    {
+        question: "How do you write an array?",
+        answers: [
+            { text: 'var example = [“a”, “b”, “c”];' },
+            { text: "var example = [a, b, c];" },
+            { text: 'var example = “abc”;' },
+            { text: 'var example (“a, b, c”);' }
+        ]
+    },
+    {
+        question: "What is a Boolean?",
+        answers: [
+            { text: "True or false" },
+            { text: "The difference between two numbers." },
+            { text: "True" },
+            { text: "False" }
+        ]
+    },
+    {
+        question: "What does != mean?",
+        answers: [
+            { text: "Not equal" },
+            { text: "must equal" },
+            { text: "important equal" },
+            { text: "Breaks your code" }
+        ]
+    },
+    {
+        question: "What is a good way to debug JavaScript?",
+        answers: [
+            { text: "the console" },
+            { text: "console.log();" },
+            { text: "bugs are okay in JavaScript" },
+            { text: "A bug bomb" }
+        ]
+    },
+    {
+        question: "What does ++ mean?",
+        answers: [
+            { text: "Increment a number" },
+            { text: "add the numbers twice" },
+            { text: "Zooms in on the screen" },
+            { text: "adds the number then adds it again" }
+        ]
+    },
+    {
+        question: "What does -- mean",
+        answers: [
+            { text: "decrement a number." },
+            { text: "subtract a number twice." },
+            { text: "zooms out on the screen" },
+            { text: "subtracts the number then subtracts it again" }
+        ]
+    },
+    {
+        question: 'Given var example = “abc”.split(“”); what does .split(“”) do?',
+        answers: [
+            { text: "will separate each character" },
+            { text: "Will split “a b c” if there are any spaces" },
+            { text: "Will make an three arrays, one for a,b and c" },
+            { text: "Will add a space between each character" }
+        ]
+    },
+    {
+        question: "given ( a || b || c ) what does || mean",
+        answers: [
+            { text: "or" },
+            { text: "and" },
+            { text: "if" },
+            { text: "else" }
+        ]
+    },
+    {
+        question: "Given array.push(example) what does .push do?",
+        answers: [
+            { text: "inserts example to array" },
+            { text: "pushes array down one line of code" },
+            { text: "pushes array up one line of code" },
+            { text: "puts array into a string with example" }
+        ]
+    }
+]
