@@ -1,4 +1,8 @@
 // global vars
+var questionEl = document.getElementById('questions')
+// click Take the quiz!
+document.getElementById('takeQuiz').addEventListener("click", startQuiz);
+// vars for timer
 var startingMinutes = parseInt(15);
 var timeCount = startingMinutes * 60;
 
@@ -8,7 +12,7 @@ var highScores = [];
 // array of questions
 var questions = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'];
 // array to keep track of how many questions the user answered correct
-var answeredCorrect =[];
+var answeredCorrect = [];
 
 // timer
 // updates timer every second
@@ -25,25 +29,36 @@ function updateTime() {
     // make the timer stop at 0
 }
 
+// function to select next question.
+function nextQuestion() {
+    
+}
+//Done// I need an array of High scores
+// Done// I need an array to hold questions
 
-            //Done// I need an array of High scores
-            // Done// I need an array to hold questions
-
-// I need an array to hold answers for each question
+// DoI need this array if i nake the correct answer a truthy in my var Qs ? // I need an array to hold answers for each question
 
 // I need a function to start the quiz
+function startQuiz() {
+    // now a question needs to appear in the questions card.
+    // document.getElementById('questions').innerHTML = Q1 (question);
+    console.log('clicked!')
+}
+
+
+
 // I need a function to control the question number
 // I need a function to display the quiz question
 // I need a function to display the quiz possible answers
 // I need a function to check the selected answer
-    //in this function if the answer is correct, move on to the next question and change color of spinner to green
-    //if the answer is incorrect I need to remove time as a penalty and change the spinner color to red
+//in this function if the answer is correct, move on to the next question and change color of spinner to green
+//if the answer is incorrect I need to remove time as a penalty and change the spinner color to red
 // after moving on to the next question change the question number
-            // Done // I need a temporary array to hold the amount of questions ther user got correct
+// Done // I need a temporary array to hold the amount of questions ther user got correct
 // when the quiz is complete I will ask the user for their initials
 // after the user submits their initials I will store their score in the High score array (w/initials)
 // if the user beats one of the high scores I need to display their score above the ones they beat
-    // I will do this with a function to display the list in order of score from high to low
+// I will do this with a function to display the list in order of score from high to low
 
 
 
@@ -52,6 +67,28 @@ function updateTime() {
 
 
 // My Questions
+
+// can I make this the questions array?
+// this also gives me a way to check for correct answers
+// var questions = [
+//     {
+//         question: "In an .html document where should you link an external .js at?",
+//         answers: [
+//             { text:}  
+//             { text: "Right before the </body>", correct: true },
+//             { text: "In the <head> after any linked CSS", correct: false },
+//             { text: "Right after <body>", correct: false },
+//             { text: "just above the closing </html>", correct: false }
+//         ]
+//     },
+//     }
+//     //  add the rest of the questions like this   
+//     },
+//     }
+//     //  add the rest of the questions like this   
+//     }
+// ]
+
 var Q1 = {
     question: "In an .html document where should you link an external .js at?",
     A: "Right before the </body>",
