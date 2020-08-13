@@ -11,6 +11,10 @@
     // count down starts when take the quiz is clicked
     // minus time for wrong answers
 
+    // how much time to start with 
+
+    // when time reaches 00:00 make the quiz genarate a score
+
 // question goes here neeeds to populate with questions 
     // needs to populate a question when take the quiz is clicked
     // populate the next question when you select an answer
