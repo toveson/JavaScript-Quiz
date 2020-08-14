@@ -13,20 +13,18 @@ var timeCount = startingMinutes * 60;
 
 // global arrays
 
-// I need an array of High scores
 // array to store high scores
 var highScores = [];
 
-
-// I need a temporary array to hold the amount of questions ther user got correct
 // array to keep track of how many questions the user answered correct
 var answeredCorrect = [];
 
 
 // function to select next question.
-// I need a function to display the quiz question
 function nextQuestion() {
+    // I need to display the quiz question
     document.getElementById('questions').innerText = possibleQs[0].question;
+    // I need to display the quiz possible answers
     document.getElementById('question_a').innerText = possibleQs[0].answers[0].text;
     document.getElementById('question_b').innerText = possibleQs[0].answers[1].text;
     document.getElementById('question_c').innerText = possibleQs[0].answers[2].text;
@@ -53,17 +51,64 @@ function startQuiz() {
 };
 
 
-
+// Would it be better to just display total questions left?
+var currentQuestion = [1]
+var totalQuestions = ['/15']
 // I need a function to control the question number
-// I need a function to display the quiz possible answers
+function questionNumber () {
+    document.getElementById('QuestionNumber').innerHTML =  currentQuestion + totalQuestions
+    
+    // after moving on to the next question change the question number
+    
+};
+
+
 // I need a function to check the selected answer
-//in this function if the answer is correct, move on to the next question and change color of spinner to green
-//if the answer is incorrect I need to remove time as a penalty and change the spinner color to red
-// after moving on to the next question change the question number
-// when the quiz is complete I will ask the user for their initials
-// after the user submits their initials I will store their score in the High score array (w/initials)
-// if the user beats one of the high scores I need to display their score above the ones they beat
-// I will do this with a function to display the list in order of score from high to low
+function userAnswer () {
+
+    // was A, B, C or D clicked or if clicked options has 
+    
+    
+    //if the answer is correct (option has correct: true)
+    if (correct = true) {
+        // move on to the next question 
+        
+        // change color of spinner to green
+        document.getElementById('spin1').classList.remove('spinner-border')
+        document.getElementById('spin1').classList.add('spinner-grow text-success')
+        // add one to possibleQs and add one to answeredCorrect
+    }
+    // if the answer is incorrect (option has correct: false)
+    // else (correct = false) {
+    //     // remove time as a penalty
+        
+    //     // change the spinner color to red
+    //     document.getElementById('spin1').classList.remove('spinner-border');
+    //     document.getElementById('spin1').classList.add('spinner-grow text-danger');
+    //     // add one to possibleQs and remove time
+    // };
+
+};
+
+
+
+
+
+function completeQuiz () {
+    // when the quiz is complete I will ask the user for their initials
+    // after the user submits their initials I will store their score in the High score array (w/initials)
+    
+    function highScore () {
+
+
+    }
+    // if the user beats one of the high scores I need to display their score above the ones they beat
+    // I will do this with a function to display the list in order of score from high to low
+    
+
+
+    
+};
 
 
 
