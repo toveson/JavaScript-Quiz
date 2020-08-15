@@ -2,15 +2,15 @@
 // click Take the quiz!
 document.getElementById('takeQuiz').addEventListener("click", startQuiz);
 // click an answer
-document.getElementById('question_a').addEventListener("click", nextQuestion);
-document.getElementById('question_b').addEventListener("click", nextQuestion);
-document.getElementById('question_c').addEventListener("click", nextQuestion);
-document.getElementById('question_d').addEventListener("click", nextQuestion);
+document.getElementById('question_a').addEventListener("click", userAnswer);
+document.getElementById('question_b').addEventListener("click", userAnswer);
+document.getElementById('question_c').addEventListener("click", userAnswer);
+document.getElementById('question_d').addEventListener("click", userAnswer);
 
 // vars for timer
 var startingMinutes = parseInt(15);
 var timeCount = startingMinutes * 60;
-
+var correct;
 // global arrays
 
 // array to store high scores
@@ -19,74 +19,82 @@ var highScores = [];
 // array to keep track of how many questions the user answered correct
 var answeredCorrect = [];
 
-
+// var for poddibleQs index
+var qsIndex = 0;
+var intervalId;
 // function to select next question.
 function nextQuestion() {
     // I need to display the quiz question
-    document.getElementById('questions').innerText = possibleQs[0].question;
+    document.getElementById('questions').innerText = possibleQs[qsIndex].question;
     // I need to display the quiz possible answers
-    document.getElementById('question_a').innerText = possibleQs[0].answers[0].text;
-    document.getElementById('question_b').innerText = possibleQs[0].answers[1].text;
-    document.getElementById('question_c').innerText = possibleQs[0].answers[2].text;
-    document.getElementById('question_d').innerText = possibleQs[0].answers[3].text;
+    document.getElementById('question_a').innerText = possibleQs[qsIndex].answers[0].text;
+    document.getElementById('question_b').innerText = possibleQs[qsIndex].answers[1].text;
+    document.getElementById('question_c').innerText = possibleQs[qsIndex].answers[2].text;
+    document.getElementById('question_d').innerText = possibleQs[qsIndex].answers[3].text;
 };
 
-// updates timer every second
-setInterval(updateTime, 1000);
-function updateTime() {
-    var minutesCount = Math.floor(timeCount / 60);
-    var secondsCount = timeCount % 60;
-    
-    secondsCount = secondsCount < 10 ? '0' + secondsCount : secondsCount;
-    document.getElementById('countdown').innerHTML = minutesCount + ':' + secondsCount;
-    timeCount--;
-    
-    // make the timer stop at 0
-};
 
 function startQuiz() {
     // now a question needs to appear in the questions card.
     nextQuestion();
     console.log('clicked!');
+
+    // updates timer every second
+    intervalId = setInterval(updateTime, 1000)
+
+    function updateTime() {
+        var minutesCount = Math.floor(timeCount / 60);
+        var secondsCount = timeCount % 60;
+
+        secondsCount = secondsCount < 10 ? '0' + secondsCount : secondsCount;
+        document.getElementById('countdown').innerHTML = minutesCount + ':' + secondsCount;
+        timeCount--;
+        if (timeCount <= 0) {
+            clearInterval(intervalId);
+
+        }
+
+    };
 };
 
 
 // Would it be better to just display total questions left?
-var currentQuestion = [1]
+var currentQuestion = 1;
 var totalQuestions = ['/15']
 // I need a function to control the question number
-function questionNumber () {
-    document.getElementById('QuestionNumber').innerHTML =  currentQuestion + totalQuestions
-    
-    // after moving on to the next question change the question number
-    
-};
+function questionNumber() {
+    document.getElementById('QuestionNumber').innerHTML = currentQuestion + totalQuestions
 
+    // after moving on to the next question change the question number
+
+};
 
 // I need a function to check the selected answer
-function userAnswer () {
-
+function userAnswer() {
+    
     // was A, B, C or D clicked or if clicked options has 
-    
-    
+    // move on to the next question 
+    qsIndex++;
+    currentQuestion++;
+    nextQuestion();
     //if the answer is correct (option has correct: true)
-    if (correct = true) {
-        // move on to the next question 
-        
+    if (correct) {
         // change color of spinner to green
-        document.getElementById('spin1').classList.remove('spinner-border')
-        document.getElementById('spin1').classList.add('spinner-grow text-success')
+        document.getElementById('spin1').classList.remove('spinner-border');
+        document.getElementById('spin1').classList.add('spinner-grow');
+        document.getElementById('spin1').classList.add('text-success');
         // add one to possibleQs and add one to answeredCorrect
     }
-    // if the answer is incorrect (option has correct: false)
-    // else (correct = false) {
-    //     // remove time as a penalty
-        
-    //     // change the spinner color to red
-    //     document.getElementById('spin1').classList.remove('spinner-border');
-    //     document.getElementById('spin1').classList.add('spinner-grow text-danger');
-    //     // add one to possibleQs and remove time
-    // };
+    // if the answer is incorrect(option has correct: false)
+    else {
+        // remove time as a penalty
+
+        // change the spinner color to red
+        document.getElementById('spin1').classList.remove('spinner-border');
+        document.getElementById('spin1').classList.add('spinner-grow');
+        document.getElementById('spin1').classList.add('text-danger');
+        // add one to possibleQs and remove time
+    };
 
 };
 
@@ -94,20 +102,21 @@ function userAnswer () {
 
 
 
-function completeQuiz () {
+function completeQuiz() {
     // when the quiz is complete I will ask the user for their initials
     // after the user submits their initials I will store their score in the High score array (w/initials)
-    
-    function highScore () {
+    // clearinterval 
+
+    function highScore() {
 
 
     }
     // if the user beats one of the high scores I need to display their score above the ones they beat
     // I will do this with a function to display the list in order of score from high to low
-    
 
 
-    
+
+
 };
 
 
