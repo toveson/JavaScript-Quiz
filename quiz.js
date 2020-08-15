@@ -9,7 +9,7 @@ document.getElementById('question_d').addEventListener("click", userAnswer);
 var answerButton = document.getElementById('answer_button')
 
 // vars for timer
-var startingMinutes = parseInt(15);
+var startingMinutes = parseInt(10);
 var timeCount = startingMinutes * 60;
 
 var correct;
@@ -51,7 +51,7 @@ function startQuiz() {
         secondsCount = secondsCount < 10 ? '0' + secondsCount : secondsCount;
         document.getElementById('countdown').innerHTML = minutesCount + ':' + secondsCount;
         timeCount--;
-        if (timeCount <= 0) {
+        if (timeCount < -1) {
             clearInterval(intervalId);
         }
 
@@ -73,19 +73,82 @@ function questionNumber() {
 var nextSpin = ['spin_']
 console.log(nextSpin)
 
+
 // I need a function to check the selected answer
 function userAnswer(index) {
-    // was A, B, C or D clicked or if clicked options has 
     
-    // move on to the next question 
+    function completeQuiz() {
+        // when the quiz is complete I will ask the user for their initials
+        if (timeCount -= 60, qsIndex = 14) {
+            
+            var userInitials = prompt('What are your initials?'); return userInitials;
+            // after the user submits their initials I will store their score in the High score array (w/initials)
+            highScore.push(userInitials);
+            // clearinterval 
+        } else {userAnswer()};
+    
+        function highScore() {
+            function completeQuiz() {
+                // when the quiz is complete I will ask the user for their initials
+                if (timeCount -= 60, qsIndex = 14) {
+                    
+                    var userInitials = prompt('What are your initials?'); return userInitials;
+                    // after the user submits their initials I will store their score in the High score array (w/initials)
+                    highScore.push(userInitials);
+                    // clearinterval 
+                } else {userAnswer()};
+            
+                function highScore() {
+                
+                }
+                // if the user beats one of the high scores I need to display their score above the ones they beat
+                // I will do this with a function to display the list in order of score from high to low
+            };  function completeQuiz() {
+                // when the quiz is complete I will ask the user for their initials
+                if (timeCount -= 60, qsIndex = 14) {
+                    
+                    var userInitials = prompt('What are your initials?'); return userInitials;
+                    // after the user submits their initials I will store their score in the High score array (w/initials)
+                    highScore.push(userInitials);
+                    // clearinterval 
+                } else {userAnswer()};
+            
+                function highScore() {
+                
+                }
+                // if the user beats one of the high scores I need to display their score above the ones they beat
+                // I will do this with a function to display the list in order of score from high to low
+            };  function completeQuiz() {
+        // when the quiz is complete I will ask the user for their initials
+        if (timeCount -= 60, qsIndex = 15) {
+            
+            var userInitials = prompt('What are your initials?'); return userInitials;
+            // after the user submits their initials I will store their score in the High score array (w/initials)
+            highScore.push(userInitials);
+            // clearinterval 
+        } else {userAnswer()};
+    
+        function highScore() {
+        
+        }
+        // if the user beats one of the high scores I need to display their score above the ones they beat
+        // I will do this with a function to display the list in order of score from high to low
+    };
+        }
+        // if the user beats one of the high scores I need to display their score above the ones they beat
+        // I will do this with a function to display the list in order of score from high to low
+    };
+    
+    
+    
     spin = 'spin_';
     nextSpin = spin.concat(qsIndex)
-    //if the answer is correct (option has correct: true)
+    //if the answer is correct
     if (possibleQs[qsIndex].answers[index].correct) {
         
         
         
-        // change color of spinner to green
+        // change spinner type and color to green
         document.getElementById(nextSpin).classList.remove('spinner-border');
         document.getElementById(nextSpin).classList.add('spinner-grow');
         document.getElementById(nextSpin).classList.add('text-success');
@@ -95,36 +158,19 @@ function userAnswer(index) {
     // if the answer is incorrect
     else {
         // remove time as a penalty
-        
-        // change the spinner color to red
+        timeCount -= 60;
+        // change the spinner type and color to red
         document.getElementById(nextSpin).classList.remove('spinner-border');
         document.getElementById(nextSpin).classList.add('spinner-grow');
         document.getElementById(nextSpin).classList.add('text-danger');
-        // add one to possibleQs and remove time
     };
     qsIndex++;
     currentQuestion++;
     nextQuestion();
-
 };
 
+ 
 
-function completeQuiz() {
-    // when the quiz is complete I will ask the user for their initials
-    // after the user submits their initials I will store their score in the High score array (w/initials)
-    // clearinterval 
-
-    function highScore() {
-
-
-    }
-    // if the user beats one of the high scores I need to display their score above the ones they beat
-    // I will do this with a function to display the list in order of score from high to low
-
-
-
-
-};
 
 
 
@@ -264,6 +310,15 @@ var possibleQs = [
             { text: "pushes array up one line of code", correct: false },
             { text: "puts array into a string with example", correct: false },
             { text: "inserts example to array", correct: true }
+        ]
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: true }
         ]
     }
 ];
