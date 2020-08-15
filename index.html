@@ -40,14 +40,14 @@
             </Div>
 
             <!-- Answers -->
-            <div class="row">
+            <div class="row" id="user_options">
                 <!-- Option A -->
                 <div class="col-sm-3 pb-3">
                     <div class="card">
                         <div class="card-body">
                             <p class="card-text" ID="question_a">Option A
                             </p>
-                            <button onclick="userAnswer()" class="btn btn-primary">A</button>
+                            <button onclick="userAnswer(0)" class="btn btn-primary" id="button_a">A</button>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="card-body">
                             <p class="card-text" ID="question_b">Option B
                             </p>
-                            <button onclick="userAnswer()" class="btn btn-primary">B</button>
+                            <button onclick="userAnswer(1)" class="btn btn-primary" id="button_b">B</button>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <div class="card-body">
                             <p class="card-text" ID="question_c">Option C
                             </p>
-                            <button onclick="userAnswer()" class="btn btn-primary">C</button>
+                            <button onclick="userAnswer(2)" class="btn btn-primary" id="button_c question_c">C</button>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <div class="card-body">
                             <p class="card-text" ID="question_d">Option D
                             </p>
-                            <button onclick="userAnswer()" class="btn btn-primary">D</button>
+                            <button onclick="userAnswer(3)" class="btn btn-primary" id="button_d">D</button>
                         </div>
                     </div>
                 </div>
@@ -85,52 +85,57 @@
 
             <!-- spinner for each question will end changing color for right or wrong answer -->
             <div class="row">
-                <div class="spinner-border mb-2 mx-auto" id="spin1" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_0" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin2" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_1" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin3" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_2" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin4" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_3" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin5" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_4" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin6" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_5" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin7" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_6" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin8" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_7" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin9" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_8" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin10" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_9" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin11" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_10" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin12" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_11" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin13" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_12" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin14" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_13" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="spinner-border mb-2 mx-auto" id="spin15" role="status">
+                <div class="spinner-border mb-2 mx-auto" id="spin_14" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
+                
             </div>
+
+            <!-- should I put high scores here -->
+            
+
         </div>
 
     </div>

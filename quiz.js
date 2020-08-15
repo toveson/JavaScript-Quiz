@@ -6,10 +6,12 @@ document.getElementById('question_a').addEventListener("click", userAnswer);
 document.getElementById('question_b').addEventListener("click", userAnswer);
 document.getElementById('question_c').addEventListener("click", userAnswer);
 document.getElementById('question_d').addEventListener("click", userAnswer);
+var answerButton = document.getElementById('answer_button')
 
 // vars for timer
 var startingMinutes = parseInt(15);
 var timeCount = startingMinutes * 60;
+
 var correct;
 // global arrays
 
@@ -17,7 +19,7 @@ var correct;
 var highScores = [];
 
 // array to keep track of how many questions the user answered correct
-var answeredCorrect = [];
+var answeredCorrect = 0;
 
 // var for poddibleQs index
 var qsIndex = 0;
@@ -51,7 +53,6 @@ function startQuiz() {
         timeCount--;
         if (timeCount <= 0) {
             clearInterval(intervalId);
-
         }
 
     };
@@ -69,37 +70,43 @@ function questionNumber() {
 
 };
 
+var nextSpin = ['spin_']
+console.log(nextSpin)
+
 // I need a function to check the selected answer
-function userAnswer() {
-    
+function userAnswer(index) {
     // was A, B, C or D clicked or if clicked options has 
+    
     // move on to the next question 
+    spin = 'spin_';
+    nextSpin = spin.concat(qsIndex)
+    //if the answer is correct (option has correct: true)
+    if (possibleQs[qsIndex].answers[index].correct) {
+        
+        
+        
+        // change color of spinner to green
+        document.getElementById(nextSpin).classList.remove('spinner-border');
+        document.getElementById(nextSpin).classList.add('spinner-grow');
+        document.getElementById(nextSpin).classList.add('text-success');
+        // add one to answeredCorrect
+        answeredCorrect++;
+    }
+    // if the answer is incorrect
+    else {
+        // remove time as a penalty
+        
+        // change the spinner color to red
+        document.getElementById(nextSpin).classList.remove('spinner-border');
+        document.getElementById(nextSpin).classList.add('spinner-grow');
+        document.getElementById(nextSpin).classList.add('text-danger');
+        // add one to possibleQs and remove time
+    };
     qsIndex++;
     currentQuestion++;
     nextQuestion();
-    //if the answer is correct (option has correct: true)
-    if (correct) {
-        // change color of spinner to green
-        document.getElementById('spin1').classList.remove('spinner-border');
-        document.getElementById('spin1').classList.add('spinner-grow');
-        document.getElementById('spin1').classList.add('text-success');
-        // add one to possibleQs and add one to answeredCorrect
-    }
-    // if the answer is incorrect(option has correct: false)
-    else {
-        // remove time as a penalty
-
-        // change the spinner color to red
-        document.getElementById('spin1').classList.remove('spinner-border');
-        document.getElementById('spin1').classList.add('spinner-grow');
-        document.getElementById('spin1').classList.add('text-danger');
-        // add one to possibleQs and remove time
-    };
 
 };
-
-
-
 
 
 function completeQuiz() {
@@ -173,17 +180,26 @@ var possibleQs = [
         answers: [
             { text: "var example = (a, b, c);", correct: false },
             { text: "var example = [a, b, c];", correct: false },
-            { text: 'var example = “abc”?', correct: true },
+            { text: 'var example = “a", "b", "c”;', correct: true },
             { text: 'var example (“a, b, c”)', correct: false }
+        ]
+    },
+    {
+        question: "given ( a || b || c ) what does || mean",
+        answers: [
+            { text: "and", correct: false },
+            { text: "or", correct: true },
+            { text: "if", correct: false },
+            { text: "else", correct: false }
         ]
     },
     {
         question: "How do you write an array?",
         answers: [
+            { text: 'var example = [“a”, “b”, “c”];', correct: true },
             { text: "var example = [a, b, c];", correct: false },
             { text: 'var example = “abc”;', correct: false },
-            { text: 'var example (“a, b, c”);', correct: false },
-            { text: 'var example = [“a”, “b”, “c”];', correct: true }
+            { text: 'var example (“a, b, c”);', correct: false }
         ]
     },
     {
@@ -205,6 +221,7 @@ var possibleQs = [
         ]
     },
     {
+        // fix this question
         question: "What is a good way to debug JavaScript?",
         answers: [
             { text: "console.log();", correct: false },
@@ -236,17 +253,8 @@ var possibleQs = [
         answers: [
             { text: "Will split “a b c” if there are any spaces", correct: false },
             { text: "Will make an three arrays, one for a,b and c", correct: false },
-            { text: "will separate each character", correct: true },
+            { text: "will make each character it's own string.", correct: true },
             { text: "Will add a space between each character", correct: false }
-        ]
-    },
-    {
-        question: "given ( a || b || c ) what does || mean",
-        answers: [
-            { text: "and", correct: false },
-            { text: "or", correct: true },
-            { text: "if", correct: false },
-            { text: "else", correct: false }
         ]
     },
     {
