@@ -1,4 +1,28 @@
+// global vars
+var answerButton = document.getElementById('answer_button')
 
+// vars for timer
+var startingMinutes = parseInt(10);
+var timeCount = startingMinutes * 60;
+var intervalId;
+
+// var for poddibleQs index
+var qsIndex = 0;
+
+// for displaying the question number
+var currentQuestion = 1;
+
+// array to keep track of how many questions the user answered correct
+var answeredCorrect = 0;
+
+// used to change spinner color 
+var nextSpin = ['spin_']
+
+// global arrays
+// array to store high scores
+var highScores = [];
+
+// event listeners
 // click Take the quiz!
 document.getElementById('takeQuiz').addEventListener("click", startQuiz);
 // click an answer
@@ -6,24 +30,8 @@ document.getElementById('question_a').addEventListener("click", userAnswer);
 document.getElementById('question_b').addEventListener("click", userAnswer);
 document.getElementById('question_c').addEventListener("click", userAnswer);
 document.getElementById('question_d').addEventListener("click", userAnswer);
-var answerButton = document.getElementById('answer_button')
 
-// vars for timer
-var startingMinutes = parseInt(10);
-var timeCount = startingMinutes * 60;
 
-var correct;
-// global arrays
-
-// array to store high scores
-var highScores = [];
-
-// array to keep track of how many questions the user answered correct
-var answeredCorrect = 0;
-
-// var for poddibleQs index
-var qsIndex = 0;
-var intervalId;
 // function to select next question.
 function nextQuestion() {
     // I need to display the quiz question
@@ -39,6 +47,7 @@ function nextQuestion() {
 function startQuiz() {
     // now a question needs to appear in the questions card.
     nextQuestion();
+    // questionNumber();
     console.log('clicked!');
 
     // updates timer every second
@@ -59,19 +68,21 @@ function startQuiz() {
 };
 
 
-// Would it be better to just display total questions left?
-var currentQuestion = 1;
-var totalQuestions = ['/15']
-// I need a function to control the question number
-function questionNumber() {
-    document.getElementById('QuestionNumber').innerHTML = currentQuestion + totalQuestions
-
-    // after moving on to the next question change the question number
-
-};
-
-var nextSpin = ['spin_']
-console.log(nextSpin)
+// function questionNumber() {
+//     // Would it be better to just display total questions left?
+//     var totalQuestions = ['/15']
+//     currentQuestion = currentQuestion.toString();
+//     shownQuestion = currentQuestion.concat(totalQuestions)
+    
+//     console.log(shownquestion);
+    
+    
+//     // I need a function to control the question number
+//     // document.getElementById('QuestionNumber').innerHTML = shownQuestion;
+    
+//     // after moving on to the next question change the question number
+    
+// };
 
 
 // I need a function to check the selected answer
@@ -80,9 +91,6 @@ function userAnswer(index) {
     nextSpin = spin.concat(qsIndex)
     //if the answer is correct
     if (possibleQs[qsIndex].answers[index].correct) {
-        
-        
-        
         // change spinner type and color to green
         document.getElementById(nextSpin).classList.remove('spinner-border');
         document.getElementById(nextSpin).classList.add('spinner-grow');
