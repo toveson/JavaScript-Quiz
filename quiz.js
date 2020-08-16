@@ -76,71 +76,6 @@ console.log(nextSpin)
 
 // I need a function to check the selected answer
 function userAnswer(index) {
-    
-    function completeQuiz() {
-        // when the quiz is complete I will ask the user for their initials
-        if (timeCount -= 60, qsIndex = 14) {
-            
-            var userInitials = prompt('What are your initials?'); return userInitials;
-            // after the user submits their initials I will store their score in the High score array (w/initials)
-            highScore.push(userInitials);
-            // clearinterval 
-        } else {userAnswer()};
-    
-        function highScore() {
-            function completeQuiz() {
-                // when the quiz is complete I will ask the user for their initials
-                if (timeCount -= 60, qsIndex = 14) {
-                    
-                    var userInitials = prompt('What are your initials?'); return userInitials;
-                    // after the user submits their initials I will store their score in the High score array (w/initials)
-                    highScore.push(userInitials);
-                    // clearinterval 
-                } else {userAnswer()};
-            
-                function highScore() {
-                
-                }
-                // if the user beats one of the high scores I need to display their score above the ones they beat
-                // I will do this with a function to display the list in order of score from high to low
-            };  function completeQuiz() {
-                // when the quiz is complete I will ask the user for their initials
-                if (timeCount -= 60, qsIndex = 14) {
-                    
-                    var userInitials = prompt('What are your initials?'); return userInitials;
-                    // after the user submits their initials I will store their score in the High score array (w/initials)
-                    highScore.push(userInitials);
-                    // clearinterval 
-                } else {userAnswer()};
-            
-                function highScore() {
-                
-                }
-                // if the user beats one of the high scores I need to display their score above the ones they beat
-                // I will do this with a function to display the list in order of score from high to low
-            };  function completeQuiz() {
-        // when the quiz is complete I will ask the user for their initials
-        if (timeCount -= 60, qsIndex = 15) {
-            
-            var userInitials = prompt('What are your initials?'); return userInitials;
-            // after the user submits their initials I will store their score in the High score array (w/initials)
-            highScore.push(userInitials);
-            // clearinterval 
-        } else {userAnswer()};
-    
-        function highScore() {
-        
-        }
-        // if the user beats one of the high scores I need to display their score above the ones they beat
-        // I will do this with a function to display the list in order of score from high to low
-    };
-        }
-        // if the user beats one of the high scores I need to display their score above the ones they beat
-        // I will do this with a function to display the list in order of score from high to low
-    };
-    
-    
-    
     spin = 'spin_';
     nextSpin = spin.concat(qsIndex)
     //if the answer is correct
@@ -167,10 +102,31 @@ function userAnswer(index) {
     qsIndex++;
     currentQuestion++;
     nextQuestion();
+    // completeQuiz();
+
 };
 
  
 
+// function completeQuiz() {
+//     // when the quiz is complete I will ask the user for their initials
+//     var userInitials = prompt('What are your initials?'); return userInitials;
+//     // after the user submits their initials I will store their score in the High score array (w/initials)
+//     highScore.push(userInitials);
+//     // clearinterval 
+
+    
+    
+    
+    
+    
+//     function highScore() {
+    
+    
+//     }
+//     // if the user beats one of the high scores I need to display their score above the ones they beat
+//     // I will do this with a function to display the list in order of score from high to low
+// };
 
 
 
@@ -310,15 +266,6 @@ var possibleQs = [
             { text: "pushes array up one line of code", correct: false },
             { text: "puts array into a string with example", correct: false },
             { text: "inserts example to array", correct: true }
-        ]
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: true }
         ]
     }
 ];
