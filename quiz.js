@@ -60,7 +60,7 @@ function startQuiz() {
         secondsCount = secondsCount < 10 ? '0' + secondsCount : secondsCount;
         document.getElementById('countdown').innerHTML = minutesCount + ':' + secondsCount;
         timeCount--;
-        if (timeCount < -1) {
+        if (timeCount < 0) {
             clearInterval(intervalId);
         }
 
