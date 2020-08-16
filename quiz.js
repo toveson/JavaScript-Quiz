@@ -18,24 +18,26 @@ var answeredCorrect = 0;
 // used to change spinner color 
 var nextSpin = ['spin_']
 
+
+
 // global arrays
 // array to store high scores
-var highScores = [];
+
 
 // event listeners
 // click Take the quiz!
 document.getElementById('takeQuiz').addEventListener("click", startQuiz);
-// click an answer
-document.getElementById('question_a').addEventListener("click", userAnswer);
-document.getElementById('question_b').addEventListener("click", userAnswer);
-document.getElementById('question_c').addEventListener("click", userAnswer);
-document.getElementById('question_d').addEventListener("click", userAnswer);
 
 
 // function to select next question.
 function nextQuestion() {
     displayQuestionNumber();
     // I need to display the quiz question
+    // click an answer
+    document.getElementById('question_a').addEventListener("click", userAnswer);
+    document.getElementById('question_b').addEventListener("click", userAnswer);
+    document.getElementById('question_c').addEventListener("click", userAnswer);
+    document.getElementById('question_d').addEventListener("click", userAnswer);
     if (qsIndex < 15) {
         document.getElementById('questions').innerText = possibleQs[qsIndex].question;
         // I need to display the quiz possible answers
@@ -54,7 +56,7 @@ function nextQuestion() {
 
 function startQuiz() {
     // now a question needs to appear in the questions card.
-    
+
     console.log('clicked!');
     nextQuestion();
 
@@ -112,18 +114,29 @@ function userAnswer(index) {
 
 
 };
+
+function addToHighScore() {
+    // highScore.push(answeredCorrect[1] + userInitials[0])
+}
+
+var scoreAlert;
+var userInitials;
+var highScores = [
+    {
+        userInitials: '',
+        answeredCorrect: [],
+    },
+]
+
 function completeQuiz() {
     // when the quiz is complete I will ask the user for their initials
-    var userInitials = prompt('What are your initials?'); return userInitials;
+    userInitials = prompt('What are your initials?');
+    addToHighScore();
     // after the user submits their initials I will store their score in the High score array (w/initials)
 
-    highScore.push(userInitials + answeredCorrect);
+    scoreAlert = alert('You scored ' + answeredCorrect + ' out of 15!');
 
-
-
-};
-
-
+}
 
 
 
