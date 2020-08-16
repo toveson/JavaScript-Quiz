@@ -14,18 +14,18 @@ SO THAT I can gauge my progress compared to my peers
 
 ```
 GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
+    <!-- WHEN I click the start button -->
+    <!-- THEN a timer starts and I am presented with a question -->
+
 WHEN I answer a question
-THEN I am presented with another question
+    <!-- THEN I am presented with another question -->
+
 WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
+    <!-- THEN time is subtracted from the clock -->
+
 WHEN all questions are answered or the timer reaches 0
-THEN the game is over
+    <!-- THEN the game is over -->
 WHEN the game is over
-THEN I can save my initials and score
+    THEN I can save my initials and score
 ```
 <!-- Quiz UI a rectangle that has the question at the top and the top right will have a timmer. The middle will be the choices and the bottom will have a dot for each question. the dot goes green if you got it right and red if you got it wrong.  -->
-
-
-https://edulastic.com/blog/the-right-number-of-test-questions/ really helpful on figuring out how much time to have the quiz take.

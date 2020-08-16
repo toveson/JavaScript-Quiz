@@ -35,20 +35,25 @@ document.getElementById('question_d').addEventListener("click", userAnswer);
 // function to select next question.
 function nextQuestion() {
     // I need to display the quiz question
-    document.getElementById('questions').innerText = possibleQs[qsIndex].question;
-    // I need to display the quiz possible answers
-    document.getElementById('question_a').innerText = possibleQs[qsIndex].answers[0].text;
-    document.getElementById('question_b').innerText = possibleQs[qsIndex].answers[1].text;
-    document.getElementById('question_c').innerText = possibleQs[qsIndex].answers[2].text;
-    document.getElementById('question_d').innerText = possibleQs[qsIndex].answers[3].text;
+    if (qsIndex < 15) {
+        document.getElementById('questions').innerText = possibleQs[qsIndex].question;
+        // I need to display the quiz possible answers
+        document.getElementById('question_a').innerText = possibleQs[qsIndex].answers[0].text;
+        document.getElementById('question_b').innerText = possibleQs[qsIndex].answers[1].text;
+        document.getElementById('question_c').innerText = possibleQs[qsIndex].answers[2].text;
+        document.getElementById('question_d').innerText = possibleQs[qsIndex].answers[3].text;
+    } else {
+        completeQuiz()
+    }
+    console.log(qsIndex);
 };
 
 
 function startQuiz() {
     // now a question needs to appear in the questions card.
-    nextQuestion();
     // questionNumber();
     console.log('clicked!');
+    nextQuestion();
 
     // updates timer every second
     intervalId = setInterval(updateTime, 1000)
@@ -60,29 +65,26 @@ function startQuiz() {
         secondsCount = secondsCount < 10 ? '0' + secondsCount : secondsCount;
         document.getElementById('countdown').innerHTML = minutesCount + ':' + secondsCount;
         timeCount--;
-        if (timeCount < 0) {
+        if (timeCount <= -1) {
             clearInterval(intervalId);
+            completeQuiz();
         }
 
     };
+
 };
 
 
-// function questionNumber() {
-//     // Would it be better to just display total questions left?
-//     var totalQuestions = ['/15']
-//     currentQuestion = currentQuestion.toString();
-//     shownQuestion = currentQuestion.concat(totalQuestions)
-    
-//     console.log(shownquestion);
-    
-    
-//     // I need a function to control the question number
-//     // document.getElementById('QuestionNumber').innerHTML = shownQuestion;
-    
-//     // after moving on to the next question change the question number
-    
-// };
+function questionNumber() {
+
+    var userScore = document.getElementById(questionNumber);
+    var shownScore = answeredCorrect.toString();
+    userScore.textContent = shownScore;
+
+
+
+
+};
 
 
 // I need a function to check the selected answer
@@ -114,24 +116,26 @@ function userAnswer(index) {
 
 };
 
- 
 
-// function completeQuiz() {
-//     // when the quiz is complete I will ask the user for their initials
-//     var userInitials = prompt('What are your initials?'); return userInitials;
-//     // after the user submits their initials I will store their score in the High score array (w/initials)
-//     highScore.push(userInitials);
-//     // clearinterval 
 
-    
-    
-    
-    
-    
+function completeQuiz() {
+    // when the quiz is complete I will ask the user for their initials
+    var userInitials = prompt('What are your initials?'); return userInitials;
+    // after the user submits their initials I will store their score in the High score array (w/initials)
+    highScore.push(userInitials + answeredCorrect);
+    // clearinterval 
+
+
+
+};
+
+
+
+
+
 //     function highScore() {
-    
-    
-//     }
+
+
 //     // if the user beats one of the high scores I need to display their score above the ones they beat
 //     // I will do this with a function to display the list in order of score from high to low
 // };
