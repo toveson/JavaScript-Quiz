@@ -1,31 +1,9 @@
-# 04 Web APIs: Code Quiz
+# JavaScript Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This is a timed Javascript Quiz. Once you click 'Take the Quiz!' questions will appear as above the answers. Click the A, B, C or D buttons to select your answer. The quiz will end when time runs out or the user has answered all of the questions. Then it will ask for the users initials and provid them with their score. Useres can also see the top 10 scores by clicking on the 'View High Scores! button.
 
-## User Story
+![create password](add screenshot here)
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+this [JavaScript Quiz](https://toveson.github.io/JavaScript-Quiz/) is hosted on Github pages.
 
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-    <!-- WHEN I click the start button -->
-    <!-- THEN a timer starts and I am presented with a question -->
-
-WHEN I answer a question
-    <!-- THEN I am presented with another question -->
-
-WHEN I answer a question incorrectly
-    <!-- THEN time is subtracted from the clock -->
-
-WHEN all questions are answered or the timer reaches 0
-    <!-- THEN the game is over -->
-WHEN the game is over
-    THEN I can save my initials and score
-```
-<!-- Quiz UI a rectangle that has the question at the top and the top right will have a timmer. The middle will be the choices and the bottom will have a dot for each question. the dot goes green if you got it right and red if you got it wrong.  -->
+This application was authored by [Trever Oveson](https://github.com/toveson).
