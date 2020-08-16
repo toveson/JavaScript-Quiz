@@ -34,6 +34,7 @@ document.getElementById('question_d').addEventListener("click", userAnswer);
 
 // function to select next question.
 function nextQuestion() {
+    displayQuestionNumber();
     // I need to display the quiz question
     if (qsIndex < 15) {
         document.getElementById('questions').innerText = possibleQs[qsIndex].question;
@@ -45,13 +46,15 @@ function nextQuestion() {
     } else {
         completeQuiz()
     }
-    console.log(qsIndex);
+    console.log('----answered correct----')
+    console.log(answeredCorrect);
+
 };
 
 
 function startQuiz() {
     // now a question needs to appear in the questions card.
-    // questionNumber();
+    
     console.log('clicked!');
     nextQuestion();
 
@@ -75,15 +78,8 @@ function startQuiz() {
 };
 
 
-function questionNumber() {
-
-    var userScore = document.getElementById(questionNumber);
-    var shownScore = answeredCorrect.toString();
-    userScore.textContent = shownScore;
-
-
-
-
+function displayQuestionNumber() {
+    document.getElementById('questionNumber').innerText = 'question ' + currentQuestion.toString() + ' of 15.';
 };
 
 
@@ -114,20 +110,22 @@ function userAnswer(index) {
     nextQuestion();
     // completeQuiz();
 
+
 };
-
-
-
 function completeQuiz() {
     // when the quiz is complete I will ask the user for their initials
     var userInitials = prompt('What are your initials?'); return userInitials;
     // after the user submits their initials I will store their score in the High score array (w/initials)
+
     highScore.push(userInitials + answeredCorrect);
-    // clearinterval 
 
 
 
 };
+
+
+
+
 
 
 
