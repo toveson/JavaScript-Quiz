@@ -27,18 +27,18 @@ var nextSpin = ['spin_']
 // event listeners
 // click Take the quiz!
 document.getElementById('takeQuiz').addEventListener("click", startQuiz);
+// click an answer
+document.getElementById('question_a').addEventListener("click", userAnswer);
+document.getElementById('question_b').addEventListener("click", userAnswer);
+document.getElementById('question_c').addEventListener("click", userAnswer);
+document.getElementById('question_d').addEventListener("click", userAnswer);
 
 
 // function to select next question.
 function nextQuestion() {
     displayQuestionNumber();
     // I need to display the quiz question
-    // click an answer
-    document.getElementById('question_a').addEventListener("click", userAnswer);
-    document.getElementById('question_b').addEventListener("click", userAnswer);
-    document.getElementById('question_c').addEventListener("click", userAnswer);
-    document.getElementById('question_d').addEventListener("click", userAnswer);
-    if (qsIndex < 15) {
+    if (qsIndex < possibleQs.length) {
         document.getElementById('questions').innerText = possibleQs[qsIndex].question;
         // I need to display the quiz possible answers
         document.getElementById('question_a').innerText = possibleQs[qsIndex].answers[0].text;
@@ -48,9 +48,6 @@ function nextQuestion() {
     } else {
         completeQuiz()
     }
-    console.log('----answered correct----')
-    console.log(answeredCorrect);
-
 };
 
 
@@ -115,43 +112,39 @@ function userAnswer(index) {
 
 };
 
-function addToHighScore() {
-    // highScore.push(answeredCorrect[1] + userInitials[0])
-}
+var  highScore = [
+    // { userInitials: '', answeredCorrect: "" },
+];
 
-var scoreAlert;
-var userInitials;
-var highScores = [
-    {
-        userInitials: '',
-        answeredCorrect: [],
-    },
-]
+// I will do this with a function to display the list in order of score from high to low
+function postHighScore() {
+
+
+// if the user beats one of the high scores I need to display their score above the ones they beat
+
+// once highScore is sorted i need to 
+};
+
+
+
+
+
+
+
+
+
+
 
 function completeQuiz() {
     // when the quiz is complete I will ask the user for their initials
-    userInitials = prompt('What are your initials?');
-    addToHighScore();
-    // after the user submits their initials I will store their score in the High score array (w/initials)
-
+    userInit = prompt('What are your initials?');
     scoreAlert = alert('You scored ' + answeredCorrect + ' out of 15!');
-
+    
+    // after the user submits their initials I will store their score in the High score array (w/initials)
+    highScore.push('{ userInitials: ' + userInit + ' , answeredCorrect: ' + answeredCorrect + '},');
+    
+    console.log(highScore);
 }
-
-
-
-
-
-
-
-//     function highScore() {
-
-
-//     // if the user beats one of the high scores I need to display their score above the ones they beat
-//     // I will do this with a function to display the list in order of score from high to low
-// };
-
-
 
 // array of questions
 var possibleQs = [
