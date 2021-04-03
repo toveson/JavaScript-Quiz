@@ -18,11 +18,12 @@ var answeredCorrect = 0;
 // used to change spinner color 
 var nextSpin = ['spin_']
 
-
+var top10;
 
 // global arrays
 // array to store high scores
-
+var highScore= [];
+console.log(highScore);
 
 // event listeners
 // click Take the quiz!
@@ -36,7 +37,8 @@ document.getElementById('question_d').addEventListener("click", userAnswer);
 
 // function to select next question.
 function nextQuestion() {
-    displayQuestionNumber();
+    // displayQuestionNumber();
+    document.getElementById('questionNumber').innerText = 'question ' + currentQuestion.toString() + ' of 15.';
     // I need to display the quiz question
     if (qsIndex < possibleQs.length) {
         document.getElementById('questions').innerText = possibleQs[qsIndex].question;
@@ -53,8 +55,6 @@ function nextQuestion() {
 
 function startQuiz() {
     // now a question needs to appear in the questions card.
-
-    console.log('clicked!');
     nextQuestion();
 
     // updates timer every second
@@ -76,10 +76,6 @@ function startQuiz() {
 
 };
 
-
-function displayQuestionNumber() {
-    document.getElementById('questionNumber').innerText = 'question ' + currentQuestion.toString() + ' of 15.';
-};
 
 
 // I need a function to check the selected answer
@@ -112,38 +108,47 @@ function userAnswer(index) {
 
 };
 
-var  highScore = [
-    // { userInitials: '', answeredCorrect: "" },
-];
-
-// I will do this with a function to display the list in order of score from high to low
-function postHighScore() {
-
-
-// if the user beats one of the high scores I need to display their score above the ones they beat
-
-// once highScore is sorted i need to 
-};
 
 
 
+// function postHighScore() {
+
+//     // if () { userAnswer >
+
+//     // };
+//     // if the user beats one of the high scores I need to display their score above the ones they beat
+
+
+
+//     // once highScore is sorted i need to display to highscores page
+//     //I ll do this with a loop that runs 10 times or highScore.length
+//     // I also need this loop to add each score to local storage
+//     localStorage.setItem("topTen", JSON.stringify(highScore));
+//     console.log(highScore);
+
+// };
 
 
 
 
 
 
+
+
+
+
+
+var userScore = [];
 
 
 function completeQuiz() {
     // when the quiz is complete I will ask the user for their initials
     userInit = prompt('What are your initials?');
     scoreAlert = alert('You scored ' + answeredCorrect + ' out of 15!');
-    
+
     // after the user submits their initials I will store their score in the High score array (w/initials)
-    highScore.push('{ userInitials: ' + userInit + ' , answeredCorrect: ' + answeredCorrect + '},');
-    
-    console.log(highScore);
+    userScore.push('{ userInitials: ' + userInit + ' , answeredCorrect: ' + answeredCorrect + '},');
+    // postHighScore();
 }
 
 // array of questions
@@ -178,7 +183,7 @@ var possibleQs = [
     {
         question: "Given (array[Math.floor(Math.random() * array.length)]); What is the purpose of .floor ?",
         answers: [
-            { text: "It removes any decimal numbers.", correct: true },
+            { text: "It removes any decimal numbers from a random number.", correct: true },
             { text: "It forces the number to be 0", correct: false },
             { text: "It rounds to the nearest whole number.", correct: false },
             { text: "used the first index from an array.", correct: false }
@@ -189,8 +194,8 @@ var possibleQs = [
         answers: [
             { text: "It gets a random line of code.", correct: false },
             { text: "It will make a random math problem.", correct: false },
-            { text: "Generates a random number.", correct: false },
-            { text: "It chooses any index from array.", correct: true }
+            { text: "It chooses any index from array.", correct: false },
+            { text: "Generates a random number.", correct: true }
         ]
     },
     {
@@ -242,7 +247,7 @@ var possibleQs = [
         // fix this question
         question: "What is a good way to debug JavaScript?",
         answers: [
-            { text: "console.log();", correct: false },
+            { text: "pull your hair out", correct: false },
             { text: "bugs are okay in JavaScript", correct: false },
             { text: "A bug bomb", correct: false },
             { text: "the console", correct: true }
